@@ -60,6 +60,8 @@ def print_board():
                 print_space("\u25a1")
         print()
 
+
+
 def game():
     while running:
         print_board()
@@ -72,8 +74,7 @@ def game():
                 print("BOOM!")
                 running = False
             elif squares[y][x].flagged:
-                squares[y][x].flagged = False
-                print("The flag on this square has been removed.")
+                print("There is a flag on this square.")
             else:
                 squares[y][x].dug = True
                 if squares[y][x].is_mine:
@@ -124,10 +125,6 @@ def game():
             for square in row:
                 if not square.is_mine and square.dug:
                     stw += 1
-                if square.dug and square.is_mine:
-                    print("BOOM!")
-                    running = False
-    
         if stw == total_squares - mines:
             print("You win!")
             running = False
