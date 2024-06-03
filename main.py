@@ -60,7 +60,21 @@ def print_board():
                 print_space("\u25a1")
         print()
 
+starter_square_x = int(input("Choose a starter square's x coordinate here.")) - 1
+starter_square_y = int(input("Choose a starter square's y coordinate here.")) - 1
+squares[starter_square_y][starter_square_x].dug = True
+if starter_square_x == (0 or width - 1) and starter_square_y == (0 or height - 1):
+    revealed_squares_percentage = 28
+elif starter_square_x == (0 or width - 1) or starter_square_y == (0 or height - 1):
+    revealed_squares_percentage = 34
+elif starter_square_x != (0 or width - 1) and starter_square_y != (0 or height - 1):
+    revealed_squares_percentage = 42
+revealed_squares_int = int(revealed_squares_percentage / 100 * total_squares)
 
+number_of_mines_percentage = 20
+
+
+os.system("clear")
 
 def game():
     while running:
